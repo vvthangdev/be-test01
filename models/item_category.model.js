@@ -13,7 +13,7 @@ const ItemCategory = sequelize.define(
     itemId: {
       type: DataTypes.INTEGER,
       references: {
-        model: "Item", // Tên bảng tham chiếu (Item)
+        model: "item", // Tên bảng tham chiếu (Item)
         key: "id", // Khóa ngoại tham chiếu đến cột `id` của bảng `Item`
       },
       allowNull: false, // Mỗi loại món ăn phải thuộc về một món ăn

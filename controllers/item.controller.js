@@ -48,7 +48,7 @@ const updateItem = async (req, res) => {
 };
 
 const searchItem = async (req, res) => {
-//   console.log(req.body);
+  //   console.log(req.body);
   try {
     let { ...otherFields } = req.body; // Adjust as needed to accept relevant fields
     // console.log(otherFields);
