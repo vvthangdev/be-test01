@@ -8,6 +8,12 @@ const router = express.Router();
 
 router.get("/all-users", userController.getAllUsers);
 
+router.get(
+  "/user-info",
+  authMiddware.authenticateToken,
+  userController.userInfo
+);
+
 router.post(
   "/signup",
   userUtil.validateSignUpSignUp,
@@ -33,5 +39,10 @@ router.delete(
   authMiddware.authenticateToken,
   userController.deleteUser
 );
+
+router.post(
+  "/sendOTP",
+  userController.sendOTP
+)
 
 module.exports = router;

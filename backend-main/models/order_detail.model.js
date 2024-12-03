@@ -25,10 +25,24 @@ const OrderDetail = sequelize.define('OrderDetail', {
     type: DataTypes.ENUM('reservation', 'ship'),
     allowNull: false,
   },
-  status: {
-    type: DataTypes.ENUM('pending', 'confirmed', 'canceled'),
+  num_people: {
+    type: DataTypes.INTEGER,
+    allowNull: true, // Không bắt buộc khi type là 'ship'
+    validate: {
+      min: 1, // Đảm bảo số người phải >= 1 nếu có giá trị
+    },},
+  status: { // ship use only 'confirmed' and 'canceled'
+    type: DataTypes.ENUM('pending', 'confirmed', 'canceled', 'out_of_seats'),
     defaultValue: 'pending',
   },
+  star: {
+    type: DataTypes.INTEGER,
+    allowNull: true
+  },
+  comment: {
+    type: DataTypes.STRING(255),
+    allowNull: true
+  }
 }, {
   tableName: 'order_detail',
   timestamps: false,
